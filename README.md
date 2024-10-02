@@ -29,3 +29,35 @@ What is the asymptotic runtime ($\Theta$) of your algorithm in terms of the
 number of comparisons? What is it in terms of the number of flips? Add your
 answer to this markdown file.
 
+## My Runtime Analysis
+
+When pancakeSort() is called, it enters a for loop that will iterate through
+ the array backwards. This operation will be a complexity of $\Theta(n)$. 
+
+Inside this loop is the function findMaxIndex() which looks through a sub-array 
+of the array given. Since it's not the entire length of $n$ every call (though 
+the worst case would be $n$), I will use $m$. The time complexity of 
+findMaxIndex() is $\Theta(m)$.
+
+The flip() method is called, there are two for loops that are called. The first 
+one going through the sub-array and reversing the elements. The second one then 
+replaces these element in the original array. Both of these loops combines will 
+take a time complexity of $\Theta(2m)$ (using $m$ for the same reasoning as with 
+the findMaxIndex() method). There are then two flip() calls inside the main 
+loop, which increases the complexity to $\Theta(4m)$.
+
+Combining these complexities, we get $\Theta(n*5m)$. Ignoring constants, this 
+can simplify down to $\Theta(n*m)$ for the final complexity.
+
+
+# Sources
+
+- None - Did this one on my own!
+
+# Plagiarism Acknowledgement
+
+I certify that I have listed all sources used to complete this exercise, 
+including the use of any Large Language Models. All of the work is my own, 
+except where stated otherwise. I am aware that plagiarism carries severe 
+penalties and that if plagiarism is suspected, charges may be filed against 
+me without prior notice.
