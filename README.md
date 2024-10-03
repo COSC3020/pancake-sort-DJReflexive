@@ -35,24 +35,22 @@ When pancakeSort() is called, it enters a for loop that will iterate through
  the array backwards. This operation will be a complexity of $\Theta(n)$. 
 
 Inside this loop is the function findMaxIndex() which looks through a sub-array 
-of the array given. Since it's not the entire length of $n$ every call (though 
-the worst case would be $n$), I will use $m$. The time complexity of 
-findMaxIndex() is $\Theta(m)$.
+of the array given. The time complexity of this function is is $\Theta(n)$.
+The flip() method is also called within the loop, and there are two for loops that 
+are called. The first one going through the sub-array and reversing the elements. 
+The second one then replaces these element in the original array. Both of these 
+loops combines will take a time complexity of $\Theta(2n)$ (using $m$ for the same 
+reasoning as with the findMaxIndex() method). There are then two flip() calls 
+inside the main loop, which increases the complexity to $\Theta(4n)$.
 
-The flip() method is called, there are two for loops that are called. The first 
-one going through the sub-array and reversing the elements. The second one then 
-replaces these element in the original array. Both of these loops combines will 
-take a time complexity of $\Theta(2m)$ (using $m$ for the same reasoning as with 
-the findMaxIndex() method). There are then two flip() calls inside the main 
-loop, which increases the complexity to $\Theta(4m)$.
-
-Combining these complexities, we get $\Theta(n*5m)$. Ignoring constants, this 
-can simplify down to $\Theta(n*m)$ for the final complexity.
+Combining these complexities, we get $\Theta(n*5n)$. Ignoring constants, this 
+can simplify down to $\Theta(n*n)$ or $\Theta(n^2)$ for the final complexity.
 
 
 # Sources
 
-- None - Did this one on my own!
+- Lars: Conversation over GitHub on why help functions are in terms of n, 
+        and not of it's own linear complexity
 
 # Plagiarism Acknowledgement
 
