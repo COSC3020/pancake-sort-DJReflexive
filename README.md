@@ -31,26 +31,28 @@ answer to this markdown file.
 
 ## My Runtime Analysis
 
-When pancakeSort() is called, it enters a for loop that will iterate through
- the array backwards. This operation will be a complexity of $\Theta(n)$. 
+Looking at the comparisons and flips, when pancakeSort() is called, it enters
+a for loop that will iterate through the array backwards (loops $n$ times for the 
+length of the array). Inside the loop is the findMaxIndex() method which looks 
+through a sub-array of the array given. Within this method, there are $n$ 
+comparisons made because you are comparing every element to identify the maximum 
+value. Since this method is nested with a loop that happens $n$ times, the 
+findMaxIndex() method makes $\Theta(n^2)$ comparisons.
 
-Inside this loop is the function findMaxIndex() which looks through a sub-array 
-of the array given. The time complexity of this function is is $\Theta(n)$.
-The flip() method is also called within the loop, and there are two for loops that 
-are called. The first one going through the sub-array and reversing the elements. 
-The second one then replaces these element in the original array. Both of these 
-loops combines will take a time complexity of $\Theta(2n)$ (using $m$ for the same 
-reasoning as with the findMaxIndex() method). There are then two flip() calls 
-inside the main loop, which increases the complexity to $\Theta(4n)$.
+Looking to the flip() calls nested within this large loop, the flip() method
+doesn't make any comparisons, so every flip() call is constant number of 
+comparisons ($\Theta(1)$). Since there are two flip() calls are nested within the
+larger loop, the number of comparisons become $\Theta(2n)$. 
 
-Combining these complexities, we get $\Theta(n*5n)$. Ignoring constants, this 
-can simplify down to $\Theta(n*n)$ or $\Theta(n^2)$ for the final complexity.
+Combining these two ideas, we can see that the number of comparisons are 
+$\Theta(n^2 + 2n)$, which simplifies to $\Theta(n^2)$ comparisons.
 
 
 # Sources
 
 - Lars: Conversation over GitHub on why help functions are in terms of n, 
-        and not of it's own linear complexity
+        and not of it's own linear complexity. And also the conversation
+        about the difference between number of operations and comparisons.
 
 # Plagiarism Acknowledgement
 
